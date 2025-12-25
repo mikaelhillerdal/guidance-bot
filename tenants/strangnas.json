@@ -1,0 +1,27 @@
+{
+  "tenant_id": "strangnas",
+  "display_name": "Strängnäs kommun",
+  "locale": "sv-SE",
+  "theme": {
+    "primary": "#0B5FFF",
+    "logo_url": "/static/strangnas-logo.svg"
+  },
+  "geo": {
+    "municipality_name": "Strängnäs",
+    "municipality_code": "0486"
+  },
+  "education_scope": {
+    "enable_komvux": true,
+    "show_neighbor_municipalities_if_empty": true,
+    "neighbor_municipality_codes": ["0480", "0481", "0482"]
+  },
+  "contacts": {
+    "syv_booking_url": "https://example.se/boka-syv",
+    "komvux_info_url": "https://example.se/komvux",
+    "phone": "0152-000 00"
+  },
+  "rag": {
+    "docs_folder": "./docs/strangnas",
+    "top_k": 4
+  }
+}
