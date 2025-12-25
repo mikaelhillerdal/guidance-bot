@@ -1,5 +1,5 @@
 # tests/test_rag.py
-from app.rag.index import RagService
+from app.rag.service import RagService
 
 def test_rag_empty():
     rag = RagService("nonexistent")
