@@ -36,23 +36,45 @@ def chat(req: ChatRequest, x_tenant: Optional[str] = Header(default=None)):
     contents.extend(history_to_contents(req.messages))
 
     tools = [{
-        "function_declarations": [{
-            "name": "adult_education_events",
-            "description": "Hämtar planerade utbildningstillfällen inom vuxenutbildning för ett geografiskt område (t.ex. kommunkod).",
-            "parameters": {
-                "type": "object",
-                "properties": {
-                    "geographical_area_code": {
-                        "type": "string",
-                        "description": "Geographical area code (kommun kod), t.ex. '0486' för Strängnäs."
+        "function_declarations": [
+            {
+                "name": "adult_education_events",
+                "description": "Hämtar planerade utbildningstillfällen inom vuxenutbildning för ett geografiskt område (t.ex. kommunkod).",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "geographical_area_code": {
+                            "type": "string",
+                            "description": "Geographical area code (kommun kod), t.ex. '0486' för Strängnäs."
+                        },
+                        "page": {"type": "integer", "description": "Sida (0-baserad).", "default": 0},
+                        "size": {"type": "integer", "description": "Antal per sida.", "default": 20}
                     },
-                    "page": {"type": "integer", "description": "Sida (0-baserad).", "default": 0},
-                    "size": {"type": "integer", "description": "Antal per sida.", "default": 20}
+                    "required": []
                 },
-                "required": []
-            }
-        }]
+            },
+            {
+                "name": "education_events_search",
+                "description": "Sök planerade utbildningstillfällen för gymnasiala studievägar (gy/gyan) i kommun eller län via Skolverket planned-educations.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "geographical_area_code": {"type":"string", "description":"Kommun- eller länskod, t.ex. 0486."},
+                        "type_of_schooling": {"type":"string", "description":"Skolform: 'gy' eller 'gyan'."},
+                        "name": {"type":"string", "description":"Skolenhetens namn (hela ord)."},
+                        "study_path_code": {"type":"string", "description":"Studievägskod (om känd)."},
+                        "principal_organizer_type": {"type":"string", "description":"Huvudmannaform."},
+                        "school_orientation": {"type":"string", "description":"Inriktning."},
+                        "page": {"type":"integer", "description":"Startsidnummer (0-baserad)."},
+                        "size": {"type":"integer", "description":"Antal per sida."},
+                        "sort": {"type":"string", "description":"Sorteringsordning."}
+                    },
+                    "required": ["geographical_area_code"]
+                },
+            },
+        ],
     }]
+
 
     last_user = next((m.content for m in reversed(req.messages) if m.role == "user"), "")
 
