@@ -1,0 +1,168 @@
+/* guidance-bot/frontend/src/app/page.module.css */
+
+.shell {
+    min-height: 100vh;
+    background: var(--page-bg, #ffffff);
+    color: var(--text-color, #111827);
+    font-family: var(--font-family, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif);
+}
+
+.topbar {
+    background: var(--header-bg, #0b7a6b);
+    color: var(--header-text, #ffffff);
+}
+
+.topbarInner {
+    max-width: none;
+    margin: 0;
+    padding: 16px 16px;
+    display: grid;
+    grid-template-columns: auto 1fr auto; /* logo | centered title | spacer */
+    align-items: center;
+    column-gap: 14px;
+}
+
+.topbarInner::after {
+    content: "";
+    width: 220px; /* match .topLogo width */
+    height: 1px;
+}
+
+/* Ensure the logo itself is not trying to use invalid align-items */
+.topLogo {
+    width: 220px;
+    height: 220px;
+    object-fit: contain;
+    align-self: flex-start; /* optional: aligns logo to the top of the header row */
+}
+
+.topTitle {
+    justify-self: center; /* center the text within the middle column */
+    text-align: center;
+}
+
+.main {
+    background: var(--main-bg, #ffffff);
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 24px 16px;
+}
+
+.card {
+    border: 1px solid var(--border-color, #e5e7eb);
+    border-radius: 12px;
+    padding: 16px;
+    background: var(--card-bg, #ffffff);
+}
+
+.form {
+    display: grid;
+    gap: 12px;
+}
+
+.field {
+    display: grid;
+    gap: 6px;
+}
+
+.label {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.input,
+.select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 12px;
+    border: 1px solid var(--border-color, #d1d5db);
+    border-radius: 10px;
+    outline: none;
+    background: #ffffff;
+    color: inherit;
+}
+
+.input:focus,
+.select:focus {
+    border-color: var(--primary-color, #0f172a);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary-color, #0f172a) 20%, transparent);
+}
+
+.row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.button {
+    justify-self: start;
+    padding: 10px 14px;
+    border: 0;
+    border-radius: 10px;
+    background: var(--primary-color, #0f172a);
+    color: var(--primary-contrast, #ffffff);
+    cursor: pointer;
+}
+
+.button:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+.error {
+    margin-top: 16px;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #fecaca;
+    background: #fef2f2;
+    color: #991b1b;
+}
+
+.results {
+    margin-top: 18px;
+    display: grid;
+    gap: 10px;
+}
+
+.item {
+    border: 1px solid var(--border-color, #e5e7eb);
+    border-radius: 12px;
+    padding: 12px;
+    background: var(--card-bg, #ffffff);
+}
+
+.itemTitle {
+    font-weight: 700;
+}
+
+.itemMeta {
+    opacity: 0.8;
+    margin-top: 4px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.footer {
+    margin-top: 24px;
+    border-top: 1px solid var(--border-color, #e5e7eb);
+    background: var(--footer-bg, #ffffff);
+    padding: 0; /* ensure the logo can reach the edges */
+}
+
+.footerInner {
+    max-width: none;     /* remove constrained width */
+    margin: 0;           /* remove centering margins */
+    padding: 0;          /* remove padding so image fills footer */
+    display: block;      /* no centering flex */
+}
+
+.bottomLogo {
+    display: block;
+    width: 100%;         /* fill the entire footer width */
+    height: auto;        /* preserve aspect ratio */
+    object-fit: cover;   /* fill width; crops if needed */
+}

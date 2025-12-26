@@ -54,6 +54,7 @@ def chat(req: ChatRequest, x_tenant: Optional[str] = Header(default=None)):
         }]
     }]
 
+    last_user = next((m.content for m in reversed(req.messages) if m.role == "user"), "")
 
-    answer, sources = run_with_tools(contents, tools, tenant)
+    answer, sources = run_with_tools(contents, tools, tenant, last_user_text=last_user)
     return ChatResponse(answer=answer, sources=sources)
