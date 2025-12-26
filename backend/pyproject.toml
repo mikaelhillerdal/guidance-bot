@@ -11,7 +11,8 @@ dependencies = [
     "requests",
     "sentence-transformers",
     "faiss-cpu",
-    "pypdf"
+    "pypdf",
+    "bs4"
 ]
 
 [tool.uvicorn]

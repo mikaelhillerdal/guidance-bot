@@ -21,7 +21,15 @@
     "phone": "0152-000 00"
   },
   "rag": {
-    "docs_folder": "./docs/strangnas",
+    "docs_folder": "../tenant_docs/strangnas",
     "top_k": 4
+  },
+  "fallback_sources": {
+    "komvux_catalog": {
+      "type": "web",
+      "url": "https://strangnas.alvis.se/hittakurser",
+      "enabled": true,
+      "notes": "Kommunens kurskatalog (Alvis). Använd när Skolverket saknar komvux-utbud."
+    }
   }
 }

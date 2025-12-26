@@ -37,18 +37,23 @@ def chat(req: ChatRequest, x_tenant: Optional[str] = Header(default=None)):
 
     tools = [{
         "function_declarations": [{
-            "name": "planned_search",
-            "description": "Sök planerade Komvux-utbildningar",
+            "name": "adult_education_events",
+            "description": "Hämtar planerade utbildningstillfällen inom vuxenutbildning för ett geografiskt område (t.ex. kommunkod).",
             "parameters": {
                 "type": "object",
                 "properties": {
-                    "query": {"type": "string"},
-                    "municipality_code": {"type": "string"}
+                    "geographical_area_code": {
+                        "type": "string",
+                        "description": "Geographical area code (kommun kod), t.ex. '0486' för Strängnäs."
+                    },
+                    "page": {"type": "integer", "description": "Sida (0-baserad).", "default": 0},
+                    "size": {"type": "integer", "description": "Antal per sida.", "default": 20}
                 },
-                "required": ["query"]
+                "required": []
             }
-        }],
+        }]
     }]
+
 
     answer, sources = run_with_tools(contents, tools, tenant)
     return ChatResponse(answer=answer, sources=sources)
