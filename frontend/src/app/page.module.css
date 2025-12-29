@@ -166,3 +166,201 @@
     height: auto;        /* preserve aspect ratio */
     object-fit: cover;   /* fill width; crops if needed */
 }
+
+.chatCard {
+    border: 1px solid var(--border-color, #e5e7eb);
+    border-radius: 16px;
+    padding: 20px;
+    background: var(--card-bg, #ffffff);
+    display: grid;
+    gap: 16px;
+}
+
+.chatHeader {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.chatTitle {
+    margin: 0;
+    font-size: 20px;
+}
+
+.chatSubtitle {
+    margin: 6px 0 0;
+    color: var(--text-muted, #4b5563);
+    font-size: 14px;
+}
+
+.chatTenant {
+    font-size: 12px;
+    color: var(--text-muted, #6b7280);
+    background: color-mix(in srgb, var(--primary-color, #0f172a) 8%, transparent);
+    padding: 6px 10px;
+    border-radius: 999px;
+}
+
+.chatMessages {
+    display: grid;
+    gap: 12px;
+    max-height: 420px;
+    overflow-y: auto;
+    padding: 8px;
+    border-radius: 12px;
+    background: color-mix(in srgb, var(--border-color, #e5e7eb) 20%, transparent);
+}
+
+.emptyState {
+    color: var(--text-muted, #6b7280);
+    text-align: center;
+    padding: 18px 0;
+}
+
+.messageRowUser {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.messageRowAssistant {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.messageBubbleUser,
+.messageBubbleAssistant {
+    max-width: 70%;
+    padding: 12px 14px;
+    border-radius: 16px;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.08);
+    display: grid;
+    gap: 8px;
+}
+
+.messageBubbleUser {
+    background: var(--primary-color, #0f172a);
+    color: var(--primary-contrast, #ffffff);
+    border-bottom-right-radius: 4px;
+}
+
+.messageBubbleAssistant {
+    background: #ffffff;
+    border: 1px solid var(--border-color, #e5e7eb);
+    border-bottom-left-radius: 4px;
+}
+
+.messageRole {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 0.7;
+}
+
+.messageContent {
+    white-space: pre-wrap;
+    line-height: 1.5;
+}
+
+.loadingIndicator {
+    text-align: center;
+    color: var(--text-muted, #6b7280);
+    font-size: 13px;
+}
+
+.composer {
+    display: grid;
+    gap: 10px;
+}
+
+.composerInput {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    border: 1px solid var(--border-color, #d1d5db);
+    border-radius: 12px;
+    resize: vertical;
+    min-height: 90px;
+    font-family: inherit;
+}
+
+.composerInput:focus {
+    border-color: var(--primary-color, #0f172a);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary-color, #0f172a) 20%, transparent);
+    outline: none;
+}
+
+.composerButton {
+    justify-self: end;
+    padding: 10px 18px;
+    border: 0;
+    border-radius: 12px;
+    background: var(--primary-color, #0f172a);
+    color: var(--primary-contrast, #ffffff);
+    cursor: pointer;
+}
+
+.composerButton:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.sources {
+    border-top: 1px dashed var(--border-color, #e5e7eb);
+    padding-top: 8px;
+}
+
+.sourcesSummary {
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.sourcesList {
+    list-style: none;
+    margin: 8px 0 0;
+    padding: 0;
+    display: grid;
+    gap: 10px;
+}
+
+.sourceItem {
+    background: color-mix(in srgb, var(--border-color, #e5e7eb) 15%, transparent);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.sourceTitle {
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.sourceMeta {
+    margin-top: 6px;
+    font-size: 12px;
+    display: grid;
+    gap: 4px;
+    color: var(--text-muted, #6b7280);
+}
+
+.sourceMeta code {
+    display: block;
+    padding: 6px;
+    background: #111827;
+    color: #f9fafb;
+    border-radius: 8px;
+    font-size: 11px;
+    overflow-x: auto;
+}
+
+.sourceData {
+    margin-top: 8px;
+    padding: 8px;
+    border-radius: 8px;
+    background: #0f172a;
+    color: #f8fafc;
+    font-size: 11px;
+    max-height: 200px;
+    overflow: auto;
+}
