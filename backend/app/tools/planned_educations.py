@@ -41,7 +41,7 @@ def education_events_search(
     r = requests.get(url, params=params, headers=headers, timeout=20)
     if not r.ok:
         return {"error": "skolverket_api_error", "status": r.status_code, "url": r.url, "body": r.text[:800]}
-    return r.json()
+    return {"body": r.json()}
 
 def adult_education_events(
         *,
@@ -68,4 +68,4 @@ def adult_education_events(
             "body": r.text[:800],
         }
 
-    return r.json()
+    return {"body": r.json()}
