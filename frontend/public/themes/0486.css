@@ -1,0 +1,18 @@
+/* guidance-bot/frontend/src/public/themes/0486.css */
+:root {
+    --primary-color: #0f172a;
+    --primary-contrast: #ffffff;
+
+    --header-bg: #0b7a6b;
+    --header-text: #ffffff;
+
+    --page-bg: #ffffff;
+    --main-bg: #ffffff;
+    --footer-bg: #ffffff;
+
+    --text-color: #0b1220;
+    --border-color: #e5e7eb;
+    --card-bg: #ffffff;
+
+    --font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}

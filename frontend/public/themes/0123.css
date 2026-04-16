@@ -1,0 +1,9 @@
+/* `frontend/public/themes/0123.css` */
+:root {
+    --primary-color: #0b5cab;
+    --primary-contrast: #ffffff;
+    --text-color: #0b1220;
+    --border-color: #dbe7f5;
+    --card-bg: #ffffff;
+    --font-family: "Segoe UI", system-ui, sans-serif;
+}
