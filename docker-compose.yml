@@ -1,1 +1,21 @@
+services:
+  backend:
+    build:
+      context: ./backend
+    environment:
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend/tenants:/app/tenants:ro
+      - ./backend/tenant_docs:/app/tenant_docs:ro
 
+  frontend:
+    build:
+      context: ./frontend
+    environment:
+      - NEXT_PUBLIC_API_BASE_URL=http://localhost:8000
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend

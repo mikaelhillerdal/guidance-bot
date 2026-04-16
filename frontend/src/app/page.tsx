@@ -23,7 +23,10 @@ type PlannedResponse = {
     data?: { items?: PlannedItem[] };
     message?: string;
     error?: string;
+    answer?: string;
 };
+
+const API_BASE_URL = (process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8000").replace(/\/+$/, "");
 
 const MOCK_RESPONSE: PlannedResponse = {
     source: "mock",
@@ -134,7 +137,7 @@ export default function Page() {
                     question: normalizeWhitespace(question),
                 };
 
-                const data = await fetchJson<PlannedResponse>("/api/planned-educations/search", {
+                const data = await fetchJson<PlannedResponse>(`${API_BASE_URL}/planned-educations/search`, {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(payload),
